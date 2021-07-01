@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const { getCensus } = require('./store');
 
 const getAllCensuses = async (request, response) => {
@@ -20,7 +23,25 @@ const getAllCensuses = async (request, response) => {
 
 }
 
+const uploadFile = (req, res) => {
+    
+}
+
+const testFactures = (req, res) => {
+    
+    fs.readFile(path.join(__dirname, '../../files/factura.txt'), 'utf-8', (err, data) => {
+        
+        if(err)  console.error('error: ', err);
+
+
+
+    });
+
+    res.send("Hello word");
+}
+
 
 module.exports = {
-    getAllCensuses
+    getAllCensuses,
+    testFactures
 }

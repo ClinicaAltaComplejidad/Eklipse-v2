@@ -12,8 +12,6 @@ const sqlConfig = {
     }
 }
 
-
-
 module.exports = {
     sqlConfig,
     sql
