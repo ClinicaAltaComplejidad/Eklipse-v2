@@ -7,7 +7,7 @@ const uploadFile = require('express-fileupload');
 require('dotenv').config();
 
 //routers
-const { routeDoctor, routerLogin } = require('./routes/routes');
+const { routeDoctor, routerLogin, routeInvoices } = require('./routes/routes');
 
 //app
 const app = express();
@@ -22,6 +22,7 @@ app.use( uploadFile() );
 
 //router
 app.use('/api.v1/eklipse.v2/', routeDoctor);
+app.use('/api.v1/eklipse.v2/', routeInvoices);
 app.use('/api.v1/eklipse.v2/', routerLogin);
 
 
