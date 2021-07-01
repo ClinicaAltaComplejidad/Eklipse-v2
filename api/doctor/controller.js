@@ -23,25 +23,38 @@ const getAllCensuses = async (request, response) => {
 
 }
 
-const uploadFile = (req, res) => {
+const uploadFile = (request, response) => {
+    const file =  request.files.factura;
+
+    console.log(file);
     
+    file.mv(path.join(__dirname, `../../files/factura.txt`), err => {
+
+        if (err) response.status(500).send({ message : err });
+
+        response.status(200).json({
+            Message: 'OK'
+        });
+    
+    });
 }
 
-const testFactures = (req, res) => {
+const testFactures = (request, response) => {
     
-    fs.readFile(path.join(__dirname, '../../files/factura.txt'), 'utf-8', (err, data) => {
+    fs.readFile(path.join(__dirname, `../../files/factura.txt`), 'utf-8', (err, data) => {
         
         if(err)  console.error('error: ', err);
 
-
+        console.log(data);
 
     });
 
-    res.send("Hello word");
+    response.send("Hello word");
 }
 
 
 module.exports = {
     getAllCensuses,
-    testFactures
+    testFactures,
+    uploadFile
 }
