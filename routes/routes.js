@@ -1,7 +1,7 @@
 const routeDoctor = require('express').Router();
 const routerLogin = require('express').Router();
 
-const { getAllCensuses} = require('../api/doctor/controller');
+const { getAllCensuses } = require('../api/doctor/controller');
 const { routeInvoices } = require('../api/billing/routes');
 const { login } = require('../api/login/controller');
 

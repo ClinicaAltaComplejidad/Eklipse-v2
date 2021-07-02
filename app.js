@@ -2,6 +2,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const uploadFile = require('express-fileupload');
+const cors = require('cors');
+
 
 //utils
 require('dotenv').config();
@@ -14,6 +16,7 @@ const app = express();
 const port = 3000;
 
 //middlewares
+app.use( cors() );
 app.use( helmet() );
 app.use( cookieParser() );
 app.use( express.urlencoded( { extended: true } ) );

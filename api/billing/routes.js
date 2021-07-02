@@ -6,7 +6,7 @@ const {uploadFile, getInvoices} = require('./invoices/controller');
 const tokenValidate = require('../../scripts/token');
 
 routeInvoices.post('/invoices', tokenValidate.verifyToken, getInvoices);
-routeInvoices.post('/invoices/upload', [tokenValidate.verifyToken, uploadFile]);
+routeInvoices.post('/invoices/upload', tokenValidate.verifyToken, uploadFile);
 
 module.exports = {
     routeInvoices
