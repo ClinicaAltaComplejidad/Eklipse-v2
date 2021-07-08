@@ -22,17 +22,17 @@ const verifyToken = (request, response, next) => {
 
         const token = header.split(" ")[1];
         
-        try {
-            const data = jwt.verify(token, process.env.WORD_SSSHHH);
+        jwt.verify(token, process.env.WORD_SSSHHH, (err, data) => {
+            
+            if (err) return response.status(403).json( { Message: 'Permiso no valido' } );
+
+            request.body = {
+                ...request.body,
+                data
+            };
             next();
-        } catch (error) {
 
-            console.error(error.message);
-            response.status(403).json({
-                Message: 'Permiso no valido'
-            });
-
-        }
+        });
 
     } else {
         response.status(403).json({

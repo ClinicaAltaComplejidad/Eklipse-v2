@@ -2,8 +2,8 @@ const { getCensus } = require('./store');
 
 const getAllCensuses = async (request, response) => {
 
-    let censuses; 
-
+    let censuses;
+    
     try {
         censuses = await getCensus(request.body.bed);     
     } catch (error) {

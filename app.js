@@ -4,7 +4,6 @@ const helmet = require('helmet');
 const uploadFile = require('express-fileupload');
 const cors = require('cors');
 
-
 //utils
 require('dotenv').config();
 
@@ -13,7 +12,7 @@ const { routeDoctor, routerLogin, routeInvoices } = require('./routes/routes');
 
 //app
 const app = express();
-const port = 3000;
+const port = 4000;
 
 //middlewares
 app.use( cors() );

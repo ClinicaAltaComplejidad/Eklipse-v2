@@ -2,7 +2,6 @@ const { validateUserDB } = require('./store');
 
 //utils
 const { generateToken } = require('../../scripts/token');
-const { afterDays } = require('../../scripts/afterDays');
 
 const login = async (request, response) => {
 
@@ -22,13 +21,12 @@ const login = async (request, response) => {
 
     token = await generateToken(responseData);
 
-    response.cookie('token', token, {
-        expire: afterDays(2) 
-    });
+    response.setHeader('Access-Control-Allow-Origin', '*');
 
     return response.status(200).json({
         Message: 'OK',
-        data: responseData
+        data: responseData,
+        token: token
     });
 
 }
