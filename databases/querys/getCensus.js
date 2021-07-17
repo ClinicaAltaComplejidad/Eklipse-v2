@@ -1,4 +1,4 @@
-const getCensusOfPatients = (groupBed) => {
+const getCensusOfPatientsInBed = (groupBed) => {
     return `
     Select H.HSUNOMBRE,
     B.HCACODIGO As CAMA,
@@ -27,5 +27,5 @@ const getCensusOfPatients = (groupBed) => {
 }
 
 module.exports = {
-    getCensusOfPatients
+    getCensusOfPatientsInBed
 }

@@ -1,7 +1,7 @@
 const routeDoctor = require('express').Router();
 const routerLogin = require('express').Router();
 
-const { getAllCensuses } = require('../api/doctor/controller');
+const { getAllCensusesBed } = require('../api/hospitalization/patients/controller');
 const { routeInvoices } = require('../api/billing/routes');
 const { login } = require('../api/login/controller');
 
@@ -9,7 +9,7 @@ const { login } = require('../api/login/controller');
 const tokenValidate = require('../scripts/token');
 
 //doctor routes
-routeDoctor.post('/censuses', tokenValidate.verifyToken, getAllCensuses);
+routeDoctor.post('/censuses', tokenValidate.verifyToken, getAllCensusesBed);
 
 //login route
 routerLogin.post('/login', login);

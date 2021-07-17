@@ -1,4 +1,4 @@
-const { sql, sqlConfig, getCensusOfPatients } = require('../../databases/db');
+const { sql, sqlConfig, getCensusOfPatientsInBed } = require('../../../databases/db');
 
 const getCensus = async (bedGroup) => {
     
@@ -9,7 +9,7 @@ const getCensus = async (bedGroup) => {
         return {}
     }
 
-    const result = await sql.query( getCensusOfPatients(bedGroup) );
+    const result = await sql.query( getCensusOfPatientsInBed(bedGroup) );
     await sql.close();
 
     return result.recordset;

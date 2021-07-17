@@ -1,6 +1,6 @@
 const { getCensus } = require('./store');
 
-const getAllCensuses = async (request, response) => {
+const getAllCensusesBed = async (request, response) => {
 
     let censuses;
     
@@ -22,5 +22,5 @@ const getAllCensuses = async (request, response) => {
 
 
 module.exports = {
-    getAllCensuses,
+    getAllCensusesBed,
 }
