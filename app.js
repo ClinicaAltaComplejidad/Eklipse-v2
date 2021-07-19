@@ -8,7 +8,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 //routers
-const { routeDoctor, routerLogin, routeInvoices } = require('./routes/routes');
+const { routeCensus, routerLogin, routeInvoices } = require('./routes/routes');
 
 //app
 const app = express();
@@ -23,7 +23,7 @@ app.use( express.json() );
 app.use( uploadFile() );
 
 //router
-app.use('/api.v1/eklipse.v2/', routeDoctor);
+app.use('/api.v1/eklipse.v2/', routeCensus);
 app.use('/api.v1/eklipse.v2/', routeInvoices);
 app.use('/api.v1/eklipse.v2/', routerLogin);
 

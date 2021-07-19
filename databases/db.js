@@ -2,12 +2,14 @@
 const { sql, sqlConfig } = require('./dbConfig');
 
 //querys
-const { getCensusOfPatients } = require('./querys/getCensus');
+const { getPatientsControl } = require('./querys/getPatientsControl');
+const { getPatientsCensus } = require('./querys/getPatientsCensus');
 const { getUserQuery } = require('./querys/getLogin');
 
 module.exports = {
     sql,
     sqlConfig,
-    getCensusOfPatients,
+    getPatientsControl,
+    getPatientsCensus,
     getUserQuery
 }

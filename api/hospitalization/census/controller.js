@@ -1,11 +1,11 @@
-const { getCensus } = require('./store');
+const { getPatientCensus } = require('./store');
 
-const getAllCensusesBed = async (request, response) => {
+const getAllPatientsCensus = async (request, response) => {
 
     let censuses;
-    
+    const { clinic} = request.body
     try {
-        censuses = await getCensus(request.body.bed);     
+        censuses = await getPatientCensus(clinic);     
     } catch (error) {
         return response.status(400).json({
             Message: 'BAD REQUEST',
@@ -22,5 +22,5 @@ const getAllCensusesBed = async (request, response) => {
 
 
 module.exports = {
-    getAllCensusesBed,
+    getAllPatientsCensus,
 }

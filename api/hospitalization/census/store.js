@@ -1,6 +1,6 @@
-const { sql, sqlConfig, getCensusOfPatientsInBed } = require('../../../databases/db');
+const { sql, sqlConfig, getPatientsCensus } = require('../../../databases/db');
 
-const getCensus = async (bedGroup) => {
+const getPatientCensus = async (clinic) => {
     
     try {
         await sql.connect(sqlConfig);
@@ -9,7 +9,7 @@ const getCensus = async (bedGroup) => {
         return {}
     }
 
-    const result = await sql.query( getCensusOfPatientsInBed(bedGroup) );
+    const result = await sql.query( getPatientsCensus(clinic) );
     await sql.close();
 
     return result.recordset;
@@ -18,5 +18,5 @@ const getCensus = async (bedGroup) => {
 
 
 module.exports = {
-    getCensus
+    getPatientCensus
 }
